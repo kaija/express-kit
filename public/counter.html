@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="/css/flipclock.css">
+		<link rel="stylesheet" href="/css/bootstrap.min.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+		<script src="/js/flipclock.js"></script>
+        <style>
+        body { 
+            background-image: url('images/rim.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center center; 
+        }
+        .center-div {
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 700px;
+            height: 100px;
+            border-radius: 3px;
+        }
+        </style>
+	</head>
+	<body>
+    <div class="row">
+        <div class="center-div">
+	        <div class="clock" style="margin:2em;"></div>
+        </div>
+    </div>
+	<div class="message"></div>
+
+	<script type="text/javascript">
+		var clock;
+		
+		$(document).ready(function() {
+			var now = new Date().getTime()/1000;
+            var start = (new Date("2017/01/01 00:00:00").getTime()/1000);
+            diff = Math.round(now - start);
+			clock = $('.clock').FlipClock(diff, {
+		        clockFace: 'DailyCounter'
+		    });
+		});
+	</script>
+	
+	</body>
+</html>
